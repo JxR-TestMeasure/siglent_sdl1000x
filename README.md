@@ -3,6 +3,7 @@ Python instrument driver for:  Siglent
 Requires: pyvisa, numpy
 
                             import siglent_sdl1000x as dev
+'''
 Class flow                  dev = Device('VISA::ADDRESS')
 Device:                     dev
     ModeCC:                 dev.cc
@@ -25,7 +26,7 @@ Device:                     dev
     Protection              dev.prot
     System                  dev.sys
     Common                  dev._com
-
+'''
 
 *****
 Note:   Most functions provide both 'get' and 'set' type behavior 
