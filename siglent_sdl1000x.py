@@ -126,6 +126,9 @@ Command
 
 '''
 
+# Tracks input: on/off, short: on/off, mode
+global_input_values = {}
+
 class Device:
     def __init__(self, visa_addr='TCPIP0::sdl1020x::inst0::INSTR'):
         self._address = str(visa_addr)
@@ -134,6 +137,14 @@ class Device:
         self._bus.read_termination = '\n'
         self._bus.write_termination = '\n'
         self._com = Common(self._bus)
+
+        # Get model and see if it is a 300W unit
+        model = str(self._bus.query('*IDN?')).split(',')[1]
+        high_power_models = ('SDL1030X-E', 'SDL1030X')
+        high_power = model in high_power_models
+        global_input_values['model'] = model
+        global_input_values['high_power'] = high_power
+
         self.meas = Measure(self._bus)
         self.test = ModeTestFunctions(self._bus)
         self.sys = System(self._bus)
@@ -177,13 +188,11 @@ class Common:
     # Read standard event enable register (no param)
     # Write with param
     def ese(self, reg_value=None):
-        val = self._validate.register_8(reg_value)
         query = '*ESE?'
-        write = '*ESE ' + str(val)
-        rvalue = self._command.read_write(query, write,
-                                          val, reg_value)
-        if reg_value is None:
-            return rvalue
+        write = '*ESE'
+        return self._command.read_write(
+            query, write, self._validate.register_8,
+            reg_value)
 
     # Read and clear standard event enable register
     def esr(self):
@@ -200,20 +209,16 @@ class Common:
     def opc(self, reg_value=None):
         query = '*OPC?'
         write = '*OPC'
-        rvalue = self._command.read_write(query, write,
-                                          reg_value)
-        if reg_value is None:
-            return rvalue
+        return self._command.read_write(
+            query, write, None, reg_value)
 
     # Returns the power supply to the saved setup (0...9)
     def rcl(self, preset_value=None):
-        val = self._validate.preset(preset_value)
         query = '*RCL?'
-        write = '*RCL ' + str(val)
-        rvalue = self._command.read_write(query, write,
-                                          val, preset_value)
-        if preset_value is None:
-            return rvalue
+        write = '*RCL'
+        return self._command.read_write(
+            query, write, self._validate.preset,
+            preset_value)
 
     # Returns the power supply to the *RST default conditions
     def rst(self):
@@ -223,23 +228,19 @@ class Common:
 
     # Saves the present setup (1..9)
     def sav(self, preset_value=None):
-        val = self._validate.preset(preset_value)
         query = '*SAV?'
-        write = '*SAV ' + str(val)
-        rvalue = self._command.read_write(query, write,
-                                          val, preset_value)
-        if preset_value is None:
-            return rvalue
+        write = '*SAV'
+        return self._command.read_write(
+            query, write, self._validate.preset,
+            preset_value)
 
     # Programs the service request enable register
     def sre(self, reg_value=None):
-        val = self._validate.register_8(reg_value)
         query = '*SRE?'
-        write = '*SRE ' + str(val)
-        rvalue = self._command.read_write(query, write,
-                                          val, reg_value)
-        if reg_value is None:
-            return rvalue
+        write = '*SRE'
+        return self._command.read_write(
+            query, write, self._validate.register_8,
+            reg_value)
 
     # Reads the status byte register
     def stb(self):
@@ -260,10 +261,6 @@ class Common:
     def tst(self):
         query = "*TST"
         return self._command.read(query)
-
-
-# Tracks input: on/off, short: on/off, mode
-global_input_values = {}
 
 
 class Input:
@@ -1117,7 +1114,7 @@ class ModeBattery(Input):
     def __init__(self, bus):
         self._bus = bus
         Input.__init__(self, bus)
-        self._validate = ValidateBattery(self._bus)
+        self._validate = ValidateTest(self._bus)
         self._mode_bat = {}
         self._mode_bat = {
             'enable': self.get_enable(),
@@ -1878,10 +1875,8 @@ class Validate:
 class ValidateInput(Validate):
     def __init__(self, bus):
         self._bus = bus
+        self._high_power = global_input_values['high_power']
         super().__init__()
-        self._model = str(self._bus.query('*IDN?')).split(',')[1]
-        high_power_models = ('SDL1030X-E', 'SDL1030X')
-        self._high_power = self._model in high_power_models
 
     def on_off(self, value):
         on_off_values = (0, 1), ('ON', 'OFF')
@@ -1937,12 +1932,6 @@ class ValidateInput(Validate):
     def slew(self, value):
         slew_values = (0.001, 2.5), ('MINimum', 'MAXimum', 'DEFault')
         return self.float_rng_and_str_tuples(slew_values, value, 3)
-
-
-class ValidateBattery(ValidateInput):
-    def __init__(self, bus):
-        self._bus = bus
-        ValidateInput.__init__(self, bus)
 
     def mode_battery(self, value):
         mode_values = ('CURRent', 'VOLTage', 'RESistance')
@@ -2046,55 +2035,7 @@ class Command(Validate):
         super().__init__()
         self._bus = bus
 
-    def read_write_old(self, query: str, write: str,
-                       validator=None, value=None,
-                       value_set=None, value_key=None):
-        if value is None:
-            return self._bus.query(query)
-        else:
-            if validator is not None:
-                val = validator
-                if isinstance(val, (ValueError, TypeError)):
-                    print(self.error_text('WARNING', val))
-                else:
-                    self._bus.write(write)
-                    if value_set is not None:
-                        value_set[value_key] = self._bus.query(query)
-                    else:
-                        return None
-
-            else:
-                self._bus.write(write)
-                if value_set is not None:
-                    value_set[value_key] = self._bus.query(query)
-                else:
-                    return None
-
     def read_write(self, query: str, write: str,
-                   validator=None, value=None,
-                   value_dict=None, value_key=None):
-        if value is None:
-            return self._bus.query(query)
-        else:
-            if validator is not None:
-                val = validator(value)
-                if isinstance(val, (ValueError, TypeError)):
-                    print(self.error_text('WARNING', val))
-                else:
-                    write = write + ' ' + str(value)
-                    self._bus.write(write)
-                    if value_dict is not None:
-                        value_dict[value_key] = self._bus.query(query)
-                    return None
-
-            else:
-                write = write + ' ' + str(value)
-                self._bus.write(write)
-                if value_dict is not None:
-                    value_dict[value_key] = self._bus.query(query)
-                return None
-
-    def read_write_2arg(self, query: str, write: str,
                    validator=None, value=None,
                    value_dict=None, value_key=None):
         if value is None:
