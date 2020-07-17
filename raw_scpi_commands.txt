@@ -1,0 +1,280 @@
+[:SOURce]:CURRent[:LEVel][:IMMediate] {<value> | MINimum| MAXimum | DEFault}
+[:SOURce]:CURRent[:LEVel][:IMMediate]?
+[:SOURce]:CURRent:IRANGe <value>
+[:SOURce]:CURRent:IRANGe?
+[:SOURce]:CURRent:VRANGe <value>
+[:SOURce]:CURRent:VRANGe?
+[:SOURce]:CURRent:SLEW[:BOTH] {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:SLEW:POSitive {<value> | MINimum |MAXimum | DEFault}
+[:SOURce]:CURRent:SLEW:POSitive?
+[:SOURce]:CURRent:SLEW:NEGative {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:SLEW:NEGative?
+[:SOURce]:CURRent:TRANsient:MODE {CONTinuous | PULSe |TOGGle}
+[:SOURce]:CURRent:TRANsient:MODE?
+[:SOURce]:CURRent:TRANsient:IRANGe
+[:SOURce]:CURRent:TRANsient:IRANGe?
+[:SOURce]:CURRent:TRANsient:VRANGe
+[:SOURce]:CURRent:TRANsient:VRANGe?
+[:SOURce]:CURRent:TRANsient:ALEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:ALEVel?
+[:SOURce]:CURRent:TRANsient:BLEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:BLEVel?
+[:SOURce]:CURRent:TRANsient:AWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:AWIDth?
+[:SOURce]:CURRent:TRANsient:BWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:BWIDth?
+[:SOURce]:CURRent:TRANsient:SLEW:POSitive {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:SLEW:POSitive?
+[:SOURce]:CURRent:TRANsient:SLEW:NEGative {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:TRANsient:SLEW:NEGative?
+
+[:SOURce]:VOLTage[:LEVel][:IMMediate] {<value> | MINimum| MAXimum | DEFault}
+[:SOURce]:VOLTage[:LEVel][:IMMediate]?
+[:SOURce]:VOLTage:IRANGe <value>
+[:SOURce]:VOLTage:IRANGe?
+[:SOURce]:VOLTage:VRANGe <value>
+[:SOURce]:VOLTage:VRANGe?
+[:SOURce]:VOLTage:TRANsient:MODE {CONTinuous | PULSe |TOGGle}
+[:SOURce]:VOLTage:TRANsient:MODE?
+[:SOURce]:VOLTage:TRANsient:IRANGe
+[:SOURce]:VOLTage:TRANsient:IRANGe?
+[:SOURce]:VOLTage:TRANsient:VRANGe
+[:SOURce]:VOLTage:TRANsient:VRANGe?
+[:SOURce]:VOLTage:TRANsient:ALEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:VOLTage:TRANsient:ALEVel?
+[:SOURce]:VOLTage:TRANsient:BLEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:VOLTage:TRANsient:BLEVel?
+[:SOURce]:VOLTage:TRANsient:AWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:VOLTage:TRANsient:AWIDth?
+[:SOURce]:VOLTage:TRANsient:BWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:VOLTage:TRANsient:BWIDth?
+
+[:SOURce]:POWer[:LEVel][:IMMediate] {<value> | MINimum| MAXimum | DEFault}
+[:SOURce]:POWer[:LEVel][:IMMediate]?
+[:SOURce]:POWer:IRANGe <value>
+[:SOURce]:POWer:IRANGe?
+[:SOURce]:POWer:VRANGe <value>
+[:SOURce]:POWer:VRANGe?
+[:SOURce]:POWer:TRANsient:MODE {CONTinuous | PULSe |TOGGle}
+[:SOURce]:POWer:TRANsient:MODE?
+[:SOURce]:POWer:TRANsient:IRANGe
+[:SOURce]:POWer:TRANsient:IRANGe?
+[:SOURce]:POWer:TRANsient:VRANGe
+[:SOURce]:POWer:TRANsient:VRANGe?
+[:SOURce]:POWer:TRANsient:ALEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:TRANsient:ALEVel?
+[:SOURce]:POWer:TRANsient:BLEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:TRANsient:BLEVel?
+[:SOURce]:POWer:TRANsient:AWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:TRANsient:AWIDth?
+[:SOURce]:POWer:TRANsient:BWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:TRANsient:BWIDth?
+
+[:SOURce]:RESistance[:LEVel][:IMMediate] {<value> | MINimum| MAXimum | DEFault}
+[:SOURce]:RESistance[:LEVel][:IMMediate]?
+[:SOURce]:RESistance:IRANGe <value>
+[:SOURce]:RESistance:IRANGe?
+[:SOURce]:RESistance:VRANGe <value>
+[:SOURce]:RESistance:VRANGe?
+[:SOURce]:RESistance:RRANGe {LOW | MIDDLE | HIGH | UPPER}
+[:SOURce]:RESistance:RRANGe?
+[:SOURce]:RESistance:TRANsient:MODE {CONTinuous | PULSe |TOGGle}
+[:SOURce]:RESistance:TRANsient:MODE?
+[:SOURce]:RESistance:TRANsient:IRANGe
+[:SOURce]:RESistance:TRANsient:IRANGe?
+[:SOURce]:RESistance:TRANsient:VRANGe
+[:SOURce]:RESistance:TRANsient:VRANGe?
+[:SOURce]:RESistance:TRANsient:RRANGe {LOW | MIDDLE | HIGH | UPPER}
+[:SOURce]:RESistance:TRANsient:RRANGe?
+[:SOURce]:RESistance:TRANsient:ALEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:RESistance:TRANsient:ALEVel?
+[:SOURce]:RESistance:TRANsient:BLEVel {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:RESistance:TRANsient:BLEVel?
+[:SOURce]:RESistance:TRANsient:AWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:RESistance:TRANsient:AWIDth?
+[:SOURce]:RESistance:TRANsient:BWIDth {<value> | MINimum | MAXimum | DEFault}
+[:SOURce]:RESistance:TRANsient:BWIDth?
+
+[:SOURce]:LED:IRANGe
+[:SOURce]:LED:IRANGe?
+[:SOURce]:LED:VRANGe
+[:SOURce]:LED:VRANGe?
+[:SOURce]:LED:VOLTage {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:LED:VOLTage?
+[:SOURce]:LED:CURRent {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:LED:CURRent?
+[:SOURce]:LED: RCOnf {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:LED: RCOnf?
+
+[:SOURce]:BATTery:FUNC
+[:SOURce]:BATTery:FUNC?
+[:SOURce]:BATTery:MODE {CURRent | POWer | RESistance}
+[:SOURce]:BATTery:MODE?
+[:SOURce]:BATTery:IRANGe <value>
+[:SOURce]:BATTery:IRANGe?
+[:SOURce]:BATTery:VRANGe <value>
+[:SOURce]:BATTery:VRANGe?
+[:SOURce]:BATTery:RRANGe {LOW | MIDDLE | HIGH | UPPER}
+[:SOURce]:BATTery:RRANGe?
+[:SOURce]:BATTery:LEVel <value>
+[:SOURce]:BATTery:LEVel?
+[:SOURce]:BATTery:VOLTage <value > | MINimum | MAXimum | DEFault}
+[:SOURce]:BATTery:VOLTage?
+[:SOURce]:BATTery:CAPability <value>
+[:SOURce]:BATTery:CAPability?
+[:SOURce]:BATTery:TIMer?
+[:SOURce]:BATTery:VOLTage:STATe {ON | OFF | 0 | 1}
+[:SOURce]:BATTery:VOLTage:STATe?
+[:SOURce]:BATTery:CAPability:STATe {ON | OFF | 0 | 1}
+[:SOURce]:BATTery:CAPability:STATe?
+[:SOURce]:BATTery:TIMer:STATe
+[:SOURce]:BATTery:TIMer:STATe {ON | OFF | 0 | 1}
+[:SOURce]:BATTery:TIMer:STATe?
+[:SOURce]:BATTery:DISCHArg:CAPability?
+[:SOURce]:BATTery:DISCHArg:TIMer?
+
+
+[:SOURce]:LIST:MODE {CURRent | VOLTage | POWer | RESistance}
+[:SOURce]:LIST:MODE?
+[:SOURce]:LIST:IRANGe <value>
+[:SOURce]:LIST:IRANGe?
+[:SOURce]:LIST:VRANGe <value>
+[:SOURce]:LIST:VRANGe?
+[:SOURce]:LIST:RRANGe {LOW | MIDDLE | HIGH | UPPER}
+[:SOURce]:LIST:RRANGe?
+[:SOURce]:LIST:COUNt {< number: int > | MINimum | MAXimum | DEFault}
+[:SOURce]:LIST:COUNt?
+[:SOURce]:LIST:STEP {< number: int > | MINimum | MAXimum | DEFault}
+[:SOURce]:LIST:STEP?
+[:SOURce]:LIST:LEVel <step: int, value: float>
+[:SOURce]:LIST:LEVel?
+[:SOURce]:LIST:SLEW[:BOTH] <step: int, value: float>
+[:SOURce]:LIST:SLEW[:BOTH]?
+[:SOURce]:LIST:WIDth <step: int, value: float>
+[:SOURce]:LIST:WIDth?
+[:SOURce]:LIST:STATe:ON
+[:SOURce]:LIST:STATe?
+
+[:SOURce]:OCP:FUNC
+[:SOURce]:OCP:FUNC?
+[:SOURce]:OCP:IRANGe?
+[:SOURce]:OCP:VRANGe <value>
+[:SOURce]:OCP:VRANGe?
+[:SOURce]:OCP:STARt {< value: float,int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:STARt?
+[:SOURce]:OCP:STEP {< value: float?, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:STEP?
+[:SOURce]:OCP:STEP:DELay {< value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:STEP:DELay?
+[:SOURce]:OCP:END {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:END?
+[:SOURce]:OCP:MIN {< value: float,int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:MIN?
+[:SOURce]:OCP:MAX {< value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:MAX?
+[:SOURce]:OCP:VOLTage <value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OCP:VOLTage?
+
+[:SOURce]:OPP:FUNC
+[:SOURce]:OPP:FUNC?
+[:SOURce]:OPP:IRANGe?
+[:SOURce]:OPP:VRANGe <value>
+[:SOURce]:OPP:VRANGe?
+[:SOURce]:OPP:STARt {< value: float,int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:STARt?
+[:SOURce]:OPP:STEP {< value: float?, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:STEP?
+[:SOURce]:OPP:STEP:DELay {< value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:STEP:DELay?
+[:SOURce]:OPP:END {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:END?
+[:SOURce]:OPP:MIN {< value: float,int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:MIN?
+[:SOURce]:OPP:MAX {< value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:MAX?
+[:SOURce]:OPP:VOLTage <value: float, int > | MINimum | MAXimum | DEFault}
+[:SOURce]:OPP:VOLTage?
+
+
+[:SOURce]:PROGram:STEP {< number > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:STEP?
+[:SOURce]:PROGram:MODE <step>, {CURRent | VOLTage | POWer | RESistance | LED}
+[:SOURce]:PROGram:MODE? <step>
+[:SOURce]:PROGram:IRANGe <step,value>
+[:SOURce]:PROGram: VRANGe <step, value>,
+[:SOURce]:PROGram: V RANGe? <step>
+[:SOURce]:PROGram:RRANGe <step>, {LOW | MIDDLE | HIGH}
+[:SOURce]:PROGram:RRANGe? <step>
+[:SOURce]:PROGram:SHORt <step>, {ON | OFF | 0 | 1}
+[:SOURce]:PROGram:SHORt? <step>
+[:SOURce]:PROGram:PAUSE <step>, {ON | OFF | 0 | 1 }
+[:SOURce]:PROGram:PAUSE? <step>,
+[:SOURce]:PROGram:TIME:ON <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:TIME:ON? <step>
+[:SOURce]:PROGram:TIME:OFF <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:TIME:OFF? <step>
+[:SOURce]:PROGram:TIME:DELay <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:TIME:DELay? <step>
+[:SOURce]:PROGram:MIN <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:MIN? <step>
+[:SOURce]:PROGram:MAX <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:MAX? <step>
+[:SOURce]:PROGram:LEVel <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:LEVel? <step>
+[:SOURce]:PROGram:LED:CURRent <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:LED:CURRent? <step>
+[:SOURce]:PROGram:LED:RCOnf <step>, {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:PROGram:LED:RCOnf? <step>
+[:SOURce]:PROGram:STATe:ON
+[:SOURce]:PROGram:STATe?
+[:SOURce]:PROGram:TEST? <step>
+
+[:SOURce]:VOLTage [:LEVel]:ON <step>
+[:SOURce]:VOLTage [:LEVel]:ON?
+[:SOURce]:VOLTage :LATCh[:STATe] {ON | OFF | 0 | 1}
+[:SOURce]:VOLTage :LATCh[:STATe]?
+[:SOURce]:EXT:INPUT[:StATe] {ON | OFF | 0 | 1}
+[:SOURce]:EXT:INPUT[:StATe]?
+[:SOURce]:CURRent:PROTection:STATe {ON | OFF | 0 | 1}
+[:SOURce]:EXT:INPUT[:StATe]?
+[:SOURce]:CURRent:PROTection:LEVel {< value | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:PROTection:LEVel?
+[:SOURce]:CURRent:PROTection:DELay {< value | MINimum | MAXimum | DEFault}
+[:SOURce]:CURRent:PROTection:DELay?
+[:SOURce]:POWer:PROTection:STATe {ON | OFF | 0 | 1}
+[:SOURce]:POWer:PROTection:STATe?
+[:SOURce]:POWer:PROTection:LEVel {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:PROTection:LEVel?
+[:SOURce]:POWer:PROTection:DELay {< value > | MINimum | MAXimum | DEFault}
+[:SOURce]:POWer:PROTection:DELay?
+
+SYSTem:SENSe[:STATe] {ON | OFF | 0 | 1}
+SYSTem:SENSe[:STATe]?
+SYSTem:IMONItor[:STATe] {ON | OFF | 0 | 1}
+SYSTem:IMONItor[:STATe]?
+SYSTem:VMONItor [: {ON | OFF | 0 | 1}
+SYSTem:VMONItor[:STATe]?
+STOP:ON:FAIL[:STATe] {ON | OFF | 0 | 1}
+STOP:ON:FAIL[:STATe]?
+
+TRIGger:SOURce {MANUal | EXTernal | BUS}
+TRIGger:SOURce?
+SENSe:AVERage:COUNt {6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14}
+SENSe:AVERage:COUNt?
+EXT:MODE {INT | EXTI | EXTV}
+EXT:MODE?
+EXT:IRANGe <value>
+EXT:IRANGe?
+EXT:VRANGe <value>
+EXT:VRANGe?
+TIME:TEST[:STATe] {ON | OFF | 0 | 1}
+TIME:TEST[:STATe]?
+TIME:TEST:VOLTage:LOW {< value > | MINimum | MAXimum | DEFault}
+TIME:TEST:VOLTage:LOW?
+TIME:TEST:VOLTage:HIGH {< value | MINimum | MAXimum | DEFault}
+TIME:TEST:VOLTage:HIGH?
+TIME:TEST:RISE?
+TIME:TEST:FALL?
+
+
+
