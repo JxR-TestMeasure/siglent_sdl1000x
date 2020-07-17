@@ -4,7 +4,7 @@ import pyvisa
 import numpy as np
 
 '''
-Instrument Driver for:  Siglent
+Python instrument driver for:  Siglent
                         Model: SDL1000X series DC electronic load
 Requires: pyvisa, numpy
 
@@ -805,6 +805,12 @@ class ModeDynamicCV(ModeDynamic):
             query, write, self._validate.pulse_width,
             set_pulse_width, self._mode_cv_dyn, 'b_width')
 
+    def set_a_and_b(self, set_a_level, set_b_level, set_a_width, set_b_width):
+        self.a_level(set_a_level)
+        self.b_level(set_b_level)
+        self.a_width(set_a_width)
+        self.b_width(set_b_width)
+
     def current_range(self, set_current_range=None):
         query = ':VOLT:TRAN:IRANG?'
         write = ':VOLT:TRAN:IRANG'
@@ -879,6 +885,12 @@ class ModeDynamicCP(ModeDynamic):
             query, write, self._validate.pulse_width,
             set_pulse_width, self._mode_cp_dyn, 'b_width')
 
+    def set_a_and_b(self, set_a_level, set_b_level, set_a_width, set_b_width):
+        self.a_level(set_a_level)
+        self.b_level(set_b_level)
+        self.a_width(set_a_width)
+        self.b_width(set_b_width)
+
     def current_range(self, set_current_range=None):
         query = ':POW:TRAN:IRANG?'
         write = ':POW:TRAN:IRANG'
@@ -900,6 +912,7 @@ class ModeDynamicCR(ModeDynamic):
         ModeDynamic.__init__(self, bus)
         self._mode_cr_dyn = {}
         self._mode_cr_dyn = {
+            'enable': self.get_enable(),
             'pulse_mode': self.pulse_mode(),
             'a_level': self.a_level(),
             'b_level': self.b_level(),
@@ -918,6 +931,10 @@ class ModeDynamicCR(ModeDynamic):
 
     def enable(self):
         self._mode('RES')
+
+    def get_enable(self):
+        query = ':LIST:STAT?'
+        return self._command.read(query)
 
     def pulse_mode(self, set_transient_mode=None):
         query = ':RES:TRAN:MODE?'
@@ -953,6 +970,12 @@ class ModeDynamicCR(ModeDynamic):
         return self._command.read_write(
             query, write, self._validate.pulse_width,
             set_pulse_width, self._mode_cr_dyn, 'b_width')
+
+    def set_a_and_b(self, set_a_level, set_b_level, set_a_width, set_b_width):
+        self.a_level(set_a_level)
+        self.b_level(set_b_level)
+        self.a_width(set_a_width)
+        self.b_width(set_b_width)
 
     def current_range(self, set_current_range=None):
         query = ':RES:TRAN:IRANG?'
@@ -997,6 +1020,7 @@ class ModeList(Input):
         self._validate = ValidateTest(self._bus)
         self._mode_list = {}
         self._mode_list = {
+            'enable': self.get_enable(),
             'list_mode': self.list_mode(),
             'level': self.level(),
             'count': self.count(),
@@ -1219,7 +1243,7 @@ class ModeOCP(Input):
         self._validate = ValidateTest(self._bus)
         self._mode_ocp = {}
         self._mode_ocp = {
-            'ocp_enable': self.get_enable(),
+            'enable': self.get_enable(),
             'start_current': self.start_current(),
             'step_current': self.step_current(),
             'end_current': self.end_current(),
@@ -1317,7 +1341,7 @@ class ModeOPP(Input):
         self._validate = ValidateTest(self._bus)
         self._mode_opp = {}
         self._mode_opp = {
-            'ocp_enable': self.get_enable(),
+            'enable': self.get_enable(),
             'start_power': self.start_power(),
             'step_power': self.step_power(),
             'end_power': self.end_power(),
