@@ -4,28 +4,28 @@ Requires: pyvisa, numpy
 
 		import siglent_sdl1000x as dev
 
-		Class flow                  dev = Device('VISA::ADDRESS')
-		Device:                     dev
-			ModeCC:                 dev.cc
-				ModeDynamicCC:      dev.cc.dyn
-			ModeCV:                 dev.cv
-				ModeDynamicCV:      dev.cv.dyn
-			ModeCP:                 dev.cp
-				ModeDynamicCP:      dev.cp.dyn
-			ModeCR:                 dev.cr
-				ModeDynamicCR:      dev.cr.dyn
-			ModeTestFunctions:      dev.test
-				ModeLED             dev.test.led
-				ModeBattery         dev.test.bat
-				ModeList            dev.test.list
-				ModeProgram         dev.test.prog
-				ModeOCP             dev.test.ocp
-				ModeOPP             dev.test.opp
-				ModeTime            dev.test.time
-			Measure                 dev.meas
-			Protection              dev.prot
-			System                  dev.sys
-			Common                  dev._com
+	Class flow                  dev = Device('VISA::ADDRESS')
+	Device:                     dev
+		ModeCC:                 dev.cc
+			ModeDynamicCC:      dev.cc.dyn
+		ModeCV:                 dev.cv
+			ModeDynamicCV:      dev.cv.dyn
+		ModeCP:                 dev.cp
+			ModeDynamicCP:      dev.cp.dyn
+		ModeCR:                 dev.cr
+			ModeDynamicCR:      dev.cr.dyn
+		ModeTestFunctions:      dev.test
+			ModeLED             dev.test.led
+			ModeBattery         dev.test.bat
+			ModeList            dev.test.list
+			ModeProgram         dev.test.prog
+			ModeOCP             dev.test.ocp
+			ModeOPP             dev.test.opp
+			ModeTime            dev.test.time
+		Measure                 dev.meas
+		Protection              dev.prot
+		System                  dev.sys
+		Common                  dev._com
 
 
 *****
