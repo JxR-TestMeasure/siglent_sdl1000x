@@ -2,31 +2,31 @@ Python instrument driver for:  Siglent
                         Model: SDL1000X series DC electronic load
 Requires: pyvisa, numpy
 
-                            import siglent_sdl1000x as dev
-'''
-Class flow                  dev = Device('VISA::ADDRESS')
-Device:                     dev
-    ModeCC:                 dev.cc
-        ModeDynamicCC:      dev.cc.dyn
-    ModeCV:                 dev.cv
-        ModeDynamicCV:      dev.cv.dyn
-    ModeCP:                 dev.cp
-        ModeDynamicCP:      dev.cp.dyn
-    ModeCR:                 dev.cr
-        ModeDynamicCR:      dev.cr.dyn
-    ModeTestFunctions:      dev.test
-        ModeLED             dev.test.led
-        ModeBattery         dev.test.bat
-        ModeList            dev.test.list
-        ModeProgram         dev.test.prog
-        ModeOCP             dev.test.ocp
-        ModeOPP             dev.test.opp
-        ModeTime            dev.test.time
-    Measure                 dev.meas
-    Protection              dev.prot
-    System                  dev.sys
-    Common                  dev._com
-'''
+		import siglent_sdl1000x as dev
+
+		Class flow                  dev = Device('VISA::ADDRESS')
+		Device:                     dev
+			ModeCC:                 dev.cc
+				ModeDynamicCC:      dev.cc.dyn
+			ModeCV:                 dev.cv
+				ModeDynamicCV:      dev.cv.dyn
+			ModeCP:                 dev.cp
+				ModeDynamicCP:      dev.cp.dyn
+			ModeCR:                 dev.cr
+				ModeDynamicCR:      dev.cr.dyn
+			ModeTestFunctions:      dev.test
+				ModeLED             dev.test.led
+				ModeBattery         dev.test.bat
+				ModeList            dev.test.list
+				ModeProgram         dev.test.prog
+				ModeOCP             dev.test.ocp
+				ModeOPP             dev.test.opp
+				ModeTime            dev.test.time
+			Measure                 dev.meas
+			Protection              dev.prot
+			System                  dev.sys
+			Common                  dev._com
+
 
 *****
 Note:   Most functions provide both 'get' and 'set' type behavior 
@@ -89,32 +89,32 @@ Note:   All operating modes contain a dictionary type called: 'values'
             dev.cc.dyn.slew_both(0.5)       ; set pos/neg slew to same setting
             dev.cc.dyn.on()                 ; Turn on the Input in Dyn CC mode
             
-Additional Classes:
-Measure:
-    All methods are of type 'get'
-    Provides all available 'single' measurement values
-    Provides 'WAVE' data measurement retrieval (200 samples)
-        data results in: dev.meas.wave_data  [np.array]
-Common:
-    Provides methods for common 488.2 commands
-    Most methods provide 'get' with no params, and set with the passed value
-    Provides methods for accessing standard byte, standard event registers
-System
-    Configure system options:
-        external sense, vmonitor, imonitor, etc
-Protection
-    Provides access to device protection commands
+	Additional Classes:
+	Measure:
+		All methods are of type 'get'
+		Provides all available 'single' measurement values
+		Provides 'WAVE' data measurement retrieval (200 samples)
+			data results in: dev.meas.wave_data  [np.array]
+	Common:
+		Provides methods for common 488.2 commands
+		Most methods provide 'get' with no params, and set with the passed value
+		Provides methods for accessing standard byte, standard event registers
+	System
+		Configure system options:
+			external sense, vmonitor, imonitor, etc
+	Protection
+		Provides access to device protection commands
 
-### Internal Classes ###
-Validate
-    Provides functions to validate user input
-ValidateInput
-    Provides specific ranges, settings, etc to validate user input
-    based on specified min, max settings for each individual command
-ValidateTest
-    Provides additional validation functions specific to the ModeTest
-    classes
-Command
-    Runs the SCPI commands.
-    Calls Validate class functions
-    Handles errors
+	### Internal Classes ###
+	Validate
+		Provides functions to validate user input
+	ValidateInput
+		Provides specific ranges, settings, etc to validate user input
+		based on specified min, max settings for each individual command
+	ValidateTest
+		Provides additional validation functions specific to the ModeTest
+		classes
+	Command
+		Runs the SCPI commands.
+		Calls Validate class functions
+		Handles errors
